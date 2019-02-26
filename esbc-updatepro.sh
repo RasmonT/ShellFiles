@@ -5,6 +5,11 @@ GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' 
 
+#Update the file 
+wget https://github.com/RasmonT/TestFiles/edit/master/esbc-updatepro.sh
+sleep 2s
+bash esbc-updatepro.sh
+
 #Checking Server status
 if ! /usr/local/bin/esbcoin-cli getinfo >/dev/null 2>&1; then
     echo -e "${GREEN}I will start ESBC server, then i check for Daemon version... ${NC}"
