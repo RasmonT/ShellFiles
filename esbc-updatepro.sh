@@ -82,11 +82,11 @@ if [[ $DOSETUP =~ "y" ]] ; then
 	  esbcoind -daemon
 	  esbcoin-cli --version
 	  rm -rf esbc-updatepro.sh
-	  echo -e "${GREEN} For installing updates or bootstrap in future, use bash esbc-autoinstall.sh  ${NC}"
+	  echo -e "${GREEN} For installing updates or bootstrap in future, use bash esbc-autoupdate.sh  ${NC}"
 else
       echo -e "${YELLOW}Bootstrap Installation has failed... ${NC}"
 	  sleep 2s 
 	  esbcoin-cli --version
 	  rm -rf esbc-updatepro.sh
-	  echo -e "${GREEN} For installing updates or bootstrap in future, use bash esbc-autoinstall.sh  ${NC}"
+	  echo -e "${GREEN} For installing updates or bootstrap in future, use bash esbc-autoupdate.sh  ${NC}"
 fi
