@@ -9,4 +9,4 @@ echo -e "${GREEN} Preparing actual script to start. ${NC}"
 sleep 1s
 wget https://raw.githubusercontent.com/RasmonT/TestFiles/master/evos-updatepro.sh
 sleep 2s
-bash esbc-updatepro.sh
+bash evos-updatepro.sh
