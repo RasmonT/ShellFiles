@@ -97,5 +97,5 @@ else
 	  sleep 2s 
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
-	  echo -e "${GREEN} For installing updates or bootstrap in future, use ${CYAN}bash evos-autoupdate.sh  ${NC}"
+	  echo -e "${RED} if this error happened please contact RasmonT at Discord!  ${NC}"
 fi
