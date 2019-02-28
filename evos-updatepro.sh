@@ -101,7 +101,7 @@ else
 	  sleep 2s 
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
-	  echo -e "${RED}If this error happened please contact RasmonT at Discord!  ${NC}"
+	  echo -e "${RED}If this error happened please contact ${CYAN}RasmonT ${RED}at ${CYAN}Discord!  ${NC}"
 	  echo -e "${BLUE}Exitting updater... ${NC}"
           sleep 2s
           exit 1
