@@ -13,20 +13,20 @@ if ! /usr/local/bin/evos-cli getinfo >/dev/null 2>&1; then
     evosd
     sleep 10s 
 else
-    echo -e "${GREEN} Server is running, i will check if version is correct! ${NC}"
+    echo -e "${GREEN}Server is running, i will check if version is correct! ${NC}"
     sleep 2s
     fi	
 	
 #Version Checking
 /usr/local/bin/evos-cli --version
 if [ "$(/usr/local/bin/evos-cli --version)" = "Evos Core RPC client version v1.1.3.0-2ba4298" ]; then
-    echo -e "${GREEN} Version of Daemon is correct! ${NC}"
+    echo -e "${GREEN}Version of Daemon is correct! ${NC}"
 else
-    echo -e "${YELLOW} Version of Daemon is Incorrect! ${NC}"
+    echo -e "${YELLOW}Version of Daemon is Incorrect! ${NC}"
 	sleep 1s
-	echo -e "${YELLOW} I will force update of the daemon! ${NC}"
+	echo -e "${YELLOW}I will force update of the daemon! ${NC}"
 	sleep 1s
-	echo -e "${GREEN} Stopping Evos Server and will update Daemon! ${NC}"
+	echo -e "${GREEN}Stopping Evos Server and will update Daemon! ${NC}"
 	evos-cli stop
     sleep 4s
     rm -rf .evos/mncache.dat .evos/mnpayments.dat .evos/peers.dat
@@ -42,13 +42,13 @@ else
     rm -rf *ubuntu-daemon.tgz
     evosd -daemon
     evos-cli --version
-	echo -e "${GREEN} Daemon Succesfully updated! ${NC}"
-	echo -e "${GREEN} Confirming Daemon status... ${NC}"
+	echo -e "${GREEN}Daemon Succesfully updated! ${NC}"
+	echo -e "${GREEN}Confirming Daemon status... ${NC}"
 	fi
 	
 #Checked Status
 sleep 3s
-echo -e "${GREEN} Status Checked! ${NC}"
+echo -e "${GREEN}Status Checked! ${NC}"
 sleep 1s
 
 #Bootstrap Installation 
@@ -72,26 +72,30 @@ if [[ $DOSETUP =~ "y" ]] ; then
 	  evos-cli stop
 	  sleep 2s
 	  rm -rf .evos/blocks .evos/chainstate
-      echo -e "${GREEN} Removing the current blockchain data... ${NC}"
+      echo -e "${GREEN}Removing the current blockchain data... ${NC}"
       sleep 2s
-      echo -e "${GREEN} I will start downloading the blockchain files in 5 seconds... ${NC}"
+      echo -e "${GREEN}I will start downloading the blockchain files in 5 seconds... ${NC}"
       sleep 5s
 	  wget http://289623_web.fakaheda.eu/evos/evosbootstrap.zip
 	  sleep 2s
-	  echo -e "${GREEN} Now i will install the actual blockchain data! ${NC}"
+	  echo -e "${GREEN}Now i will install the actual blockchain data! ${NC}"
 	  sleep 1s
 	  sudo apt-get install unzip
 	  unzip evosbootstrap.zip -d .evos
-	  echo -e "${GREEN} Files succesfully installed! ${NC}"
+	  echo -e "${GREEN}Files succesfully installed! ${NC}"
 	  sleep 1s
-      echo -e "${GREEN} Removing .zip file from your directory ${NC}"
+      echo -e "${GREEN}Removing .zip file from your directory ${NC}"
 	  rm -rf evosbootstrap.zip 
-	  echo -e "${GREEN} Starting the Server... ${NC}"
+	  echo -e "${GREEN}Starting the Server... ${NC}"
 	  sleep 1s
 	  evosd -daemon
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
-	  echo -e "${GREEN} For installing updates or bootstrap in future, use ${BLUE}bash evos-autoupdate.sh  ${NC}"
+	  echo -e "${GREEN}For installing updates or bootstrap in future, use ${BLUE}bash evos-autoupdate.sh  ${NC}"
+	  sleep 1s
+	  echo -e "${BLUE}Exitting updater... ${NC}"
+	  sleep 2s
+	  exit 1
 else
       echo -e "${RED}ERROR: Bootstrap Installation has failed... ${NC}"
 	  sleep 2s 
