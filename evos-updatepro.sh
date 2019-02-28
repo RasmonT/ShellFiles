@@ -54,7 +54,7 @@ echo "Do you want me to install Bootstrap?[y/n]"
 read DOSETUP
 
 if [[ $DOSETUP =~ "n" ]] ; then
-      echo -e "${GREEN}Bootstrap Installation is aborted... ${NC}"
+      echo -e "${YELLOW}Bootstrap Installation is aborted... ${NC}"
 fi
 
 if [[ $DOSETUP =~ "y" ]] ; then
@@ -85,7 +85,7 @@ if [[ $DOSETUP =~ "y" ]] ; then
 	  rm -rf evos-updatepro.sh
 	  echo -e "${GREEN} For installing updates or bootstrap in future, use bash evos-autoupdate.sh  ${NC}"
 else
-      echo -e "${YELLOW}Bootstrap Installation has failed... ${NC}"
+      echo -e "${RED}Bootstrap Installation has failed... ${NC}"
 	  sleep 2s 
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
