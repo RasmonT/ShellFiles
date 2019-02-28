@@ -5,6 +5,7 @@ GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' 
 BLUE='\033[1;34m'
+CYAN='\033[1;36m'
 
 #Checking Server status
 if ! /usr/local/bin/evos-cli getinfo >/dev/null 2>&1; then
@@ -90,5 +91,5 @@ else
 	  sleep 2s 
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
-	  echo -e "${GREEN} For installing updates or bootstrap in future, use ${BLUE}bash evos-autoupdate.sh  ${NC}"
+	  echo -e "${GREEN} For installing updates or bootstrap in future, use ${CYAN}bash evos-autoupdate.sh  ${NC}"
 fi
