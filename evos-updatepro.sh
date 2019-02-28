@@ -58,6 +58,7 @@ read DOSETUP
 if [[ $DOSETUP =~ "n" ]] ; then
       echo -e "${YELLOW}Bootstrap Installation is aborted... ${NC}"
       echo -e "${GREEN}For installing updates or bootstrap in future, use ${CYAN}bash evos-autoupdate.sh  ${NC}"
+      rm -rf evos-updatepro.sh
       sleep 1s
       echo -e "${BLUE}Exitting updater... ${NC}"
       sleep 2s
