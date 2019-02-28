@@ -93,9 +93,12 @@ if [[ $DOSETUP =~ "y" ]] ; then
 	  rm -rf evos-updatepro.sh
 	  echo -e "${GREEN} For installing updates or bootstrap in future, use ${BLUE}bash evos-autoupdate.sh  ${NC}"
 else
-      echo -e "${RED}Bootstrap Installation has failed... ${NC}"
+      echo -e "${RED}ERROR: Bootstrap Installation has failed... ${NC}"
 	  sleep 2s 
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
-	  echo -e "${RED} if this error happened please contact RasmonT at Discord!  ${NC}"
+	  echo -e "${RED}If this error happened please contact RasmonT at Discord!  ${NC}"
+	  echo -e "${BLUE}Exitting updater... ${NC}"
+          sleep 2s
+          exit 1
 fi
