@@ -1,5 +1,5 @@
 #!/bin/bash
-#This will only download the actual script of evos updater
+#This will only download and run the actual script of evos updater
 #Usage:
 #bash evos-autoupdate.sh 
 #You can bash this to make sure you always used latest evos update script...
