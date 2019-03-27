@@ -78,10 +78,45 @@ if [[ $DOSETUP =~ "n" ]] ; then
       echo -e "${YELLOW}Bootstrap Installation is aborted... ${NC}"
       echo -e "${GREEN}For installing updates or bootstrap in future, use ${CYAN}bash evos-autoupdate.sh  ${NC}"
       rm -rf evos-updatepro.sh
-      sleep 1s
-      echo -e "${BLUE}Exitting updater... ${NC}"
       sleep 2s
-      exit 1
+      
+echo -e "${GREEN}Checking the masternode status... ${NC}"
+sleep 2s
+
+/usr/local/bin/evos-cli masternode status
+if [[ "$(/usr/local/bin/evos-cli masternode status)" ==  "{"* ]]; then
+    echo -e "${GREEN}Masternode is running! ${NC}"
+	sleep 1s
+    echo -e "${BLUE}Exitting updater... ${NC}"
+	sleep 2s
+	exit 1
+else
+    echo -e "${RED}ERROR: MN is not running! ${NC}"
+	sleep 2s
+	echo -e "${YELLOW}YOU NEED TO START YOUR MASTERNODE FROM WALLET${NC}"
+	sleep 1s
+    echo -e "${YELLOW}Press ${CYAN}Start Allias ${YELLOW}to run your masternode... ${NC}"
+	sleep 1s
+	echo -e "${YELLOW}This will take one minute... ${NC}"
+	sleep 60s
+	/usr/local/bin/evos-cli masternode status
+    if [[ "$(/usr/local/bin/evos-cli masternode status)" ==  "{"* ]]; then
+	echo -e "${GREEN}Masternode is running! ${NC}"
+	sleep 1s
+    echo -e "${BLUE}Exitting updater... ${NC}"
+	sleep 2s
+	exit 1
+else
+    echo -e "${RED}ERROR: MN is not running! ${NC}"
+	sleep 1s
+	echo -e "${RED}ERROR: Make sure you filled ${BLUE}Masternode.conf ${YELLOW}correctly... ${NC}"
+	sleep 1s
+    echo -e "${RED}ERROR: If you see this message please contact us at ${CYAN}Discord... ${NC}"
+	echo -e "${BLUE}Exitting updater... ${NC}"
+	sleep 2s
+	exit 1
+	fi	
+    fi
 fi
 
 if [[ $DOSETUP =~ "y" ]] ; then
@@ -111,17 +146,53 @@ if [[ $DOSETUP =~ "y" ]] ; then
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
 	  echo -e "${GREEN}For installing updates or bootstrap in future, use ${CYAN}bash evos-autoupdate.sh  ${NC}"
-	  sleep 1s
-	  echo -e "${BLUE}Exitting updater... ${NC}"
 	  sleep 2s
-	  exit 1
 else
       echo -e "${RED}ERROR: Bootstrap Installation has failed... ${NC}"
 	  sleep 2s 
 	  evos-cli --version
 	  rm -rf evos-updatepro.sh
 	  echo -e "${RED}If this error happened please contact ${CYAN}RasmonT ${RED}at ${CYAN}Discord!  ${NC}"
-	  echo -e "${BLUE}Exitting updater... ${NC}"
           sleep 2s
-          exit 1
+fi
+
+#Masternode Checking after installation of bootstrap
+echo -e "${GREEN}Loading the daemon after bootstrap installation... ${NC}"
+sleep 35s
+echo -e "${GREEN}Checking the masternode status... ${NC}"
+sleep 2s
+
+/usr/local/bin/evos-cli masternode status
+if [[ "$(/usr/local/bin/evos-cli masternode status)" ==  "{"* ]]; then
+    echo -e "${GREEN}Masternode is running! ${NC}"
+	sleep 1s
+    echo -e "${BLUE}Exitting updater... ${NC}"
+	sleep 2s
+	exit 1
+else
+    echo -e "${RED}ERROR: MN is not running! ${NC}"
+	sleep 2s
+	echo -e "${YELLOW}YOU NEED TO START YOUR MASTERNODE FROM WALLET${NC}"
+	sleep 1s
+    echo -e "${YELLOW}Press ${CYAN}Start Allias ${YELLOW}to run your masternode... ${NC}"
+	sleep 1s
+	echo -e "${YELLOW}This will take one minute... ${NC}"
+	sleep 60s
+	/usr/local/bin/evos-cli masternode status
+    if [[ "$(/usr/local/bin/evos-cli masternode status)" ==  "{"* ]]; then
+	echo -e "${GREEN}Masternode is running! ${NC}"
+	sleep 1s
+    echo -e "${BLUE}Exitting updater... ${NC}"
+	sleep 2s
+	exit 1
+else
+    echo -e "${RED}ERROR: MN is not running! ${NC}"
+	sleep 1s
+	echo -e "${RED}ERROR: Make sure you filled ${BLUE}Masternode.conf ${YELLOW}correctly... ${NC}"
+	sleep 1s
+    echo -e "${RED}ERROR: If you see this message please contact us at ${CYAN}Discord... ${NC}"
+	echo -e "${BLUE}Exitting updater... ${NC}"
+	sleep 2s
+	exit 1
+	fi	
 fi
