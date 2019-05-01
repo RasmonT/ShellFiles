@@ -130,7 +130,7 @@ if [[ $DOSETUP =~ "y" ]] ; then
       sleep 2s
       echo -e "${GREEN}I will start downloading the blockchain files in 5 seconds... ${NC}"
       sleep 5s
-	  wget http://289623_web.fakaheda.eu/evos/evosbootstrap.zip
+	  wget http://fastdl.gsp-europe.net/fastdl_7561/evos/evosbootstrap.zip
 	  sleep 2s
 	  echo -e "${GREEN}Now i will install the actual blockchain data! ${NC}"
 	  sleep 1s
