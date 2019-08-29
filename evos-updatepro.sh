@@ -18,7 +18,7 @@ echo -e "${GREEN} ---------------------------------------------------+
  |                                                  |::
  |                                                  |::
  |                                                  |::
- |       ${YELLOW}Evos Updater v 1.13 which check your       ${GREEN}|::
+ |       ${YELLOW}Evos Updater v 1.14 which check your       ${GREEN}|::
  |            ${YELLOW}version and force update ${GREEN}             |::
  |                 ${YELLOW}By ${CYAN}RasmonT ${GREEN}                      |::
  +------------------------------------------------+::
@@ -38,7 +38,7 @@ else
 	
 #Version Checking
 /usr/local/bin/evos-cli --version
-if [ "$(/usr/local/bin/evos-cli --version)" = "Evos Core RPC client version v1.1.3.0-2ba4298" ]; then
+if [ "$(/usr/local/bin/evos-cli --version)" = "Evos Core RPC client version v1.1.4.0-7cc4886" ]; then
     echo -e "${GREEN}Version of Daemon is correct! ${NC}"
 else
     echo -e "${YELLOW}Version of Daemon is Incorrect! ${NC}"
@@ -51,8 +51,8 @@ else
     rm -rf .evos/mncache.dat .evos/mnpayments.dat .evos/peers.dat
     rm -rf /usr/local/bin/evos*
     rm -rf evos-cli_ubuntu-16.04-x64.tar.bz2
-    wget https://github.com/EVOS-DEV/evos-core/releases/download/1.1.3/evos-1.1.3-ubuntu-daemon.tgz
-    tar -xvf evos-1.1.3-ubuntu-daemon.tgz
+    wget https://github.com/EVOS-DEV/evos-core/releases/download/v1.1.4/evos-1.1.4-ubuntu-daemon.tgz
+    tar -xvf evos-1.1.4-ubuntu-daemon.tgz
     sudo chmod -R 755 evos-cli
     sudo chmod -R 755 evosd
     cp -p -r evosd /usr/local/bin
