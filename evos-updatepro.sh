@@ -18,7 +18,7 @@ echo -e "${GREEN} ---------------------------------------------------+
  |                                                  |::
  |                                                  |::
  |                                                  |::
- |       ${YELLOW}Evos Updater v 1.14 which check your       ${GREEN}|::
+ |       ${YELLOW}Evos Updater v 1.15 which check your       ${GREEN}|::
  |            ${YELLOW}version and force update ${GREEN}             |::
  |                 ${YELLOW}By ${CYAN}RasmonT ${GREEN}                      |::
  +------------------------------------------------+::
@@ -38,7 +38,7 @@ else
 	
 #Version Checking
 /usr/local/bin/evos-cli --version
-if [ "$(/usr/local/bin/evos-cli --version)" = "Evos Core RPC client version v1.1.4.0-7cc4886" ]; then
+if [ "$(/usr/local/bin/evos-cli --version)" = "Evos Core RPC client version v1.1.5*" ]; then
     echo -e "${GREEN}Version of Daemon is correct! ${NC}"
 else
     echo -e "${YELLOW}Version of Daemon is Incorrect! ${NC}"
@@ -51,8 +51,8 @@ else
     rm -rf .evos/mncache.dat .evos/mnpayments.dat .evos/peers.dat
     rm -rf /usr/local/bin/evos*
     rm -rf evos-cli_ubuntu-16.04-x64.tar.bz2
-    wget https://github.com/EVOS-DEV/evos-core/releases/download/v1.1.4/evos-1.1.4-ubuntu-daemon.tgz
-    tar -xvf evos-1.1.4-ubuntu-daemon.tgz
+    wget https://github.com/EVOS-DEV/evos-core/releases/download/v1.1.5/evos-1.1.5-ubuntu-daemon.tgz
+    tar -xvf evos-1.1.5-ubuntu-daemon.tgz
     sudo chmod -R 755 evos-cli
     sudo chmod -R 755 evosd
     cp -p -r evosd /usr/local/bin
@@ -130,7 +130,7 @@ if [[ $DOSETUP =~ "y" ]] ; then
       sleep 2s
       echo -e "${GREEN}I will start downloading the blockchain files in 5 seconds... ${NC}"
       sleep 5s
-	  wget http://fastdl.gsp-europe.net/fastdl_7669/evos/evosbootstrap.zip
+	  wget http://hostcamp.net/bomba/evos/evosbootstrap.zip
 	  sleep 2s
 	  echo -e "${GREEN}Now i will install the actual blockchain data! ${NC}"
 	  sleep 1s
